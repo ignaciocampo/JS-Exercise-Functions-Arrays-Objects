@@ -34,9 +34,9 @@ function addNumbers(num1, num2) {
  * passing 'Andy' as the argument,
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
-*/
-function sayGoodbye(/* code here */) {
-  /* code here */
+*/ 
+function sayGoodbye(name){
+return  `Goodbye, ${name}. Have a great day.`;
 }
 
 /**
@@ -53,8 +53,8 @@ function sayGoodbye(/* code here */) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
-  /* code here */
+function temperatureCtoF(number) {
+ return Math.round(number * 9 / 5 + 32) 
 }
 
 /**
@@ -73,10 +73,26 @@ function temperatureCtoF(/* code here */) {
  * the returned value should be: '75F'
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
+ * 
+ * 
 */
-function temperatureInF(/* code here */) {
-  /* code here */
+
+
+
+function temperatureInF(temperature, unit) {
+  if(unit === 'F')
+  return temperature + `F`
+
+  else (unit === 'C' )
+return temperatureCtoF(temperature) + `F`
 }
+  
+ 
+ 
+    
+
+ 
+
 
 
 /**
@@ -95,9 +111,15 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+
+function makePersonObject(id, name, email){
+  return {
+    id : id,
+    name: name,
+    email: email
+  }
 }
+
 
 /**
  * ### Challenge `getName`
@@ -112,8 +134,9 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+
+function getName(person) {
+  return `Hello, my name is ${person.name}`;
 }
 
 
@@ -132,8 +155,13 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+const fruit = appleIndex(['orange', 'grape', 'apple', 'banana', 'mango']);
+function appleIndex(arr) {
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] === 'apple') {
+    return (i);
+}
+}
 }
 
 /**
@@ -151,14 +179,25 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+//const fruits = isItAnApple([ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ]);
+
+function isItAnApple(arr) {
+  const newArr = []
+for (let i = 0; i < arr.length; i++){
+  if (arr[i] === `apple`) {
+    newArr.push(true)
+  }
+ else {
+  newArr.push(false)
+ }
+  
+  
+}
+return newArr
 }
 
-
-
 /*
-// ⭐️ Example Test Data ⭐️
+ ⭐️ Example Test Data ⭐️
 
 var inventory = [
   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
@@ -175,8 +214,10 @@ var inventory = [
   { id: 12, car_make: "Lotus", car_model: "Esprit", car_year: 2004 },
   { id: 13, car_make: "Chevrolet", car_model: "Cavalier", car_year: 1997 },
   { id: 14, car_make: "Dodge", car_model: "Ram Van 1500", car_year: 1999 }
-  /// ... Truncated
+   ... Truncated
 ]
+
+
 */
 /**
   * ### Example Array Challenge:
@@ -209,9 +250,13 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
-  /* code here */
+function getCarInfoByIndex(array, num) {
+  
+  return `This is a ${array[num].car_make} ${array[num].car_model}`
 }
+
+
+
 
 /**
  * ### Challenge `getLastCarInfo`
@@ -224,8 +269,13 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(arr) {
+  
+  let lastIndex = arr.length - 1
+  
+  return ` This is a ${arr[lastIndex].car_make} ${arr[lastIndex].car_model}`
+  
+
 }
 
 /**
